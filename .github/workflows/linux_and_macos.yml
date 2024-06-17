@@ -22,12 +22,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - cc: gcc-13
-            cxx: g++-13
+          - cc: gcc-14
+            cxx: g++-14
             clang_major_version: null
             clang_repo_suffix: null
             make: make
-            runs-on: ubuntu-22.04
+            runs-on: ubuntu-24.04
           - cc: clang-18
             cxx: clang++-18
             clang_major_version: 18
@@ -100,7 +100,7 @@ jobs:
           sudo ln -s "$(brew --prefix llvm@${{ matrix.clang_major_version }})"/bin/clang++ /usr/local/bin/clang++-${{ matrix.clang_major_version }}
 
       - name: Checkout Git branch
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b  # v4.1.4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
 
       - name: Build musl Ncurses
         if: "${{ runner.os == 'Linux' && contains(matrix.cc, 'musl') }}"
