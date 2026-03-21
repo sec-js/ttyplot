@@ -826,7 +826,7 @@ int main(int argc, char *argv[]) {
     }
 
     // To make UI testing more robust, we display a clock that is frozen at
-    // "Thu Jan  1 00:00:03 1970" when variable FAKETIME is set
+    // "Thu Jan  1 00:00:00 1970" when variable FAKETIME is set
     fake_clock = (getenv("FAKETIME") != NULL);
 
     setlocale(LC_ALL, "");
